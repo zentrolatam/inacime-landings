@@ -1,0 +1,13 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8091:80"
+    env_file:
+      - .env
+    volumes:
+      - inacime-storage:/var/www/storage
+    restart: unless-stopped
+
+volumes:
+  inacime-storage:

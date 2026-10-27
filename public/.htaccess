@@ -1,0 +1,19 @@
+Options -Indexes
+DirectoryIndex index.php
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule ^aviso-de-privacidad/?$ aviso-de-privacidad.php [L]
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+<FilesMatch "\.(css|js|webp)$">
+    <IfModule mod_headers.c>
+        Header set X-Content-Type-Options "nosniff"
+        Header set Referrer-Policy "strict-origin-when-cross-origin"
+        Header set Cache-Control "public, max-age=604800"
+    </IfModule>
+</FilesMatch>

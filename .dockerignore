@@ -1,0 +1,15 @@
+.git
+.env
+.env.*
+!.env.example
+vendor/
+.DS_Store
+storage/*.sqlite
+storage/*.sqlite-*
+storage/logs/*
+storage/retry.lock
+uploads
+prueba-copilot-30-dias
+confirmacion-solicitud-copilot
+import
+tools
