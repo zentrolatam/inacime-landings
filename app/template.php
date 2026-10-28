@@ -140,7 +140,7 @@ function render_landing(string $slug, array $landing): void
     <header class="chat-head">
       <img class="avatar" src="/assets/img/marca.webp" width="42" height="42" alt="">
       <div>
-        <div class="chat-name">INACIME Tecámac</div>
+        <div class="chat-name">INACIME <?= e((string) ($landing['plantel'] ?? 'Tecámac')) ?></div>
         <div class="chat-status">Admisiones · respondemos en minutos</div>
       </div>
     </header>
@@ -232,7 +232,7 @@ function render_landing(string $slug, array $landing): void
         throw new RuntimeException('template');
     }
 
-    render_document($title . ' · INACIME Tecámac', $subtitle !== '' ? $subtitle : $title, $html, $config, 'public, max-age=300');
+    render_document($title . ' · INACIME ' . (string) ($landing['plantel'] ?? 'Tecámac'), $subtitle !== '' ? $subtitle : $title, $html, $config, 'public, max-age=300');
 }
 
 function render_not_found(): void
@@ -249,11 +249,11 @@ function render_not_found(): void
   </header>
   <article class="simple-body">
     <h1>No encontramos esta página</h1>
-    <p>El enlace no corresponde a una licenciatura del campus Tecámac. Ábrelo de nuevo desde el anuncio o pídele el acceso a tu asesor.</p>
+    <p>El enlace no corresponde a una licenciatura de INACIME. Ábrelo de nuevo desde el anuncio o pídele el acceso a tu asesor.</p>
   </article>
 </main>
 HTML;
-    render_document('Página no encontrada · INACIME Tecámac', 'Esta dirección no corresponde a una landing de INACIME Tecámac.', $body, null, 'no-store');
+    render_document('Página no encontrada · INACIME', 'Esta dirección no corresponde a una landing de INACIME.', $body, null, 'no-store');
 }
 
 function render_privacy(): void
