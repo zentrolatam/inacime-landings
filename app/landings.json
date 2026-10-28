@@ -12,7 +12,11 @@
       "Hola, soy tu asesora de admisiones de la Licenciatura en Enfermería en el nuevo campus Tecámac.",
       "Déjame tu nombre y tu WhatsApp y te comparto horarios, requisitos y costos."
     ],
-    "chips": ["Turno matutino", "Turno sabatino", "RVOE SEP [NÚMERO]"],
+    "chips": [
+      "Turno matutino",
+      "Turno sabatino",
+      "RVOE SEP [NÚMERO]"
+    ],
     "direccion": "[DIRECCIÓN CONFIRMADA], Tecámac",
     "mensaje": "Hola, quiero información de la Licenciatura en Enfermería en Tecámac (folio {folio})"
   },
@@ -29,7 +33,11 @@
       "Hola, soy tu asesora de admisiones de la Licenciatura Cirujano Dentista en el nuevo campus Tecámac.",
       "Déjame tu nombre y tu WhatsApp y te resuelvo tus dudas sobre horarios, requisitos y costos."
     ],
-    "chips": ["Turno matutino", "Turno sabatino", "RVOE SEP [NÚMERO]"],
+    "chips": [
+      "Turno matutino",
+      "Turno sabatino",
+      "RVOE SEP [NÚMERO]"
+    ],
     "direccion": "[DIRECCIÓN CONFIRMADA], Tecámac",
     "mensaje": "Hola, quiero información de la Licenciatura Cirujano Dentista en Tecámac (folio {folio})"
   },
@@ -39,7 +47,10 @@
     "whatsapp": "525640031661",
     "folio_prefix": "LIC-TEC",
     "selector": true,
-    "opciones": ["Cirujano Dentista", "Enfermería"],
+    "opciones": [
+      "Cirujano Dentista",
+      "Enfermería"
+    ],
     "programas": {
       "Cirujano Dentista": "Licenciatura Cirujano Dentista",
       "Enfermería": "Licenciatura en Enfermería"
@@ -53,8 +64,34 @@
       "Hola, soy tu asesora de admisiones del nuevo campus Tecámac.",
       "¿Qué carrera te interesa? Elige una y déjame tu WhatsApp."
     ],
-    "chips": ["Turno matutino", "Turno sabatino", "RVOE SEP [NÚMERO]"],
+    "chips": [
+      "Turno matutino",
+      "Turno sabatino",
+      "RVOE SEP [NÚMERO]"
+    ],
     "direccion": "[DIRECCIÓN CONFIRMADA], Tecámac",
     "mensaje": "Hola, quiero información de la {programa} en Tecámac (folio {folio})"
+  },
+  "cirujano-dentista-coacalco": {
+    "programa": "Licenciatura Cirujano Dentista",
+    "plantel": "Coacalco",
+    "whatsapp": "525648254159",
+    "folio_prefix": "CD-COA",
+    "selector": false,
+    "titulo": "Licenciatura Cirujano Dentista",
+    "subtitulo": "Licenciatura del área de la salud en el campus INACIME Coacalco.",
+    "eyebrow": "INACIME · Campus Coacalco",
+    "burbujas": [
+      "Hola, soy tu asesora de admisiones de la Licenciatura Cirujano Dentista en el campus Coacalco.",
+      "Déjame tu nombre y tu WhatsApp y te resuelvo tus dudas sobre horarios, requisitos y costos."
+    ],
+    "chips": [
+      "Turno matutino",
+      "Turno vespertino",
+      "Turno sabatino",
+      "RVOE SEP [NÚMERO]"
+    ],
+    "direccion": "Gorriones 2, Parque Residencial Coacalco, Coacalco",
+    "mensaje": "Hola, quiero información de la Licenciatura Cirujano Dentista en Coacalco (folio {folio})"
   }
 }
