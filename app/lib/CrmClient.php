@@ -22,19 +22,17 @@ final class CrmClient
             $headers['Authorization'] = 'Bearer ' . $token;
         }
 
+        // Formato de la API pública de Zentro CRM: POST /api/v1/contacts
+        // (phone y name; tags por nombre, el CRM los crea si no existen).
+        // El teléfono ya viene normalizado como 52 + 10 dígitos.
         $payload = [
-            'folio' => (string) $lead['folio'],
-            'nombre' => (string) $lead['nombre'],
-            'telefono' => (string) $lead['telefono'],
-            'programa' => (string) $lead['programa'],
-            'plantel' => (string) ($landing['plantel'] ?? 'Tecámac'),
-            'origen' => 'landing',
-            'slug' => (string) $lead['slug'],
-            'utm_source' => (string) ($lead['utm_source'] ?? ''),
-            'utm_campaign' => (string) ($lead['utm_campaign'] ?? ''),
-            'utm_content' => (string) ($lead['utm_content'] ?? ''),
-            'fbc' => (string) ($lead['fbc'] ?? ''),
-            'created_at' => (string) $lead['created_at'],
+            'phone' => (string) $lead['telefono'],
+            'name' => (string) $lead['nombre'],
+            'tags' => [
+                'Landing Meta',
+                (string) ($landing['plantel'] ?? 'Tecámac'),
+                (string) $lead['programa'],
+            ],
         ];
 
         $result = Http::postJson($url, $payload, $headers, 3);
