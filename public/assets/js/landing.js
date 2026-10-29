@@ -185,7 +185,7 @@
       return;
     }
     formStarted = true;
-    ga4("form_start");
+    ga4("lead_form_start");
   }
   
   function letterCount(value) {
