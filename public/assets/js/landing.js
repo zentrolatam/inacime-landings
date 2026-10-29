@@ -179,6 +179,23 @@
     window.gtag("event", name, base);
   }
   
+  // IDs de GA4 (cookie _ga y _ga_<ID>) para que el CRM pueda mandar etapas
+  // del embudo a la misma sesión con Measurement Protocol. No son datos personales.
+  function gaIds() {
+    var out = { client: "", session: "" };
+    var m = /^GA\d\.\d\.(\d+\.\d+)$/.exec(readCookie("_ga") || "");
+    if (m) {
+      out.client = m[1];
+    }
+    if (cfg.ga4Id) {
+      var s = /^GS\d\.\d\.s?(\d+)/.exec(readCookie("_ga_" + String(cfg.ga4Id).replace(/^G-/, "")) || "");
+      if (s) {
+        out.session = s[1];
+      }
+    }
+    return out;
+  }
+
   var formStarted = false;
   function markFormStart() {
     if (formStarted) {
@@ -313,6 +330,7 @@
     loading = true;
     render();
     var id = eventId();
+    var ga = gaIds();
     var payload = {
       slug: cfg.slug,
       nombre: nameInput.value.trim(),
@@ -323,6 +341,8 @@
       utm_content: utm("utm_content"),
       fbc: readCookie("_fbc"),
       fbp: readCookie("_fbp"),
+      ga_client_id: ga.client,
+      ga_session_id: ga.session,
       event_id: id,
       page_url: window.location.href.split("#")[0],
       honeypot: honeypot.value
