@@ -33,6 +33,7 @@ final class CrmClient
                 (string) ($landing['plantel'] ?? 'Tecámac'),
                 (string) $lead['programa'],
             ],
+            'lead_source' => 'meta_ads',
         ];
 
         $result = Http::postJson($url, $payload, $headers, 3);
