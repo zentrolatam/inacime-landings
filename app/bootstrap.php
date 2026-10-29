@@ -302,10 +302,10 @@ function send_security_headers(): void
     header('X-Frame-Options: DENY');
     header(
         "Content-Security-Policy: default-src 'self'; "
-        . "script-src 'self' https://connect.facebook.net; "
+        . "script-src 'self' https://connect.facebook.net https://www.googletagmanager.com; "
         . "style-src 'self' 'unsafe-inline'; "
-        . "img-src 'self' data: https://facebook.com https://*.facebook.com https://connect.facebook.net; "
-        . "connect-src 'self' https://facebook.com https://*.facebook.com https://connect.facebook.net; "
+        . "img-src 'self' data: https://facebook.com https://*.facebook.com https://connect.facebook.net https://*.google-analytics.com https://*.googletagmanager.com; "
+        . "connect-src 'self' https://facebook.com https://*.facebook.com https://connect.facebook.net https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; "
         . "font-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
     );
 }
