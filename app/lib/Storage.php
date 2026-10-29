@@ -135,6 +135,8 @@ final class Storage
             'utm_source' => $lead['utm_source'],
             'utm_campaign' => $lead['utm_campaign'],
             'utm_content' => $lead['utm_content'],
+            'ga_client_id' => (string) ($lead['ga_client_id'] ?? ''),
+            'ga_session_id' => (string) ($lead['ga_session_id'] ?? ''),
         ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         if ($utms === false) {
             $utms = '{}';
