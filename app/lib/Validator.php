@@ -42,6 +42,9 @@ final class Validator
         $utmContent = $this->cleanUtm($input['utm_content'] ?? '');
         $fbc = $this->cleanFb($input['fbc'] ?? '', $_COOKIE['_fbc'] ?? '');
         $fbp = $this->cleanFb($input['fbp'] ?? '', $_COOKIE['_fbp'] ?? '');
+        // Identificadores de Google Analytics 4 para atar el lead a la sesión (opcionales).
+        $gaClientId = $this->cleanGa($input['ga_client_id'] ?? '', '/^\d{1,12}\.\d{9,11}$/');
+        $gaSessionId = $this->cleanGa($input['ga_session_id'] ?? '', '/^\d{9,11}$/');
 
         return [
             'ok' => true,
@@ -56,6 +59,8 @@ final class Validator
                 'fbc' => $fbc,
                 'fbp' => $fbp,
                 'ad_id' => $utmContent,
+                'ga_client_id' => $gaClientId,
+                'ga_session_id' => $gaSessionId,
                 'event_id' => strtolower($eventId),
                 'page_url' => $this->cleanPageUrl($input['page_url'] ?? '', $slug),
             ],
@@ -163,6 +168,16 @@ final class Validator
         }
 
         return $map;
+    }
+
+    private function cleanGa(mixed $value, string $pattern): string
+    {
+        if (!is_string($value)) {
+            return '';
+        }
+        $value = trim($value);
+
+        return preg_match($pattern, $value) === 1 ? $value : '';
     }
 
     private function cleanUtm(mixed $value): string
