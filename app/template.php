@@ -42,7 +42,8 @@ function render_document(string $title, string $description, string $body, ?arra
             JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_HEX_TAG | JSON_HEX_AMP | JSON_THROW_ON_ERROR
         );
         echo '<script type="application/json" id="landing-config">' . $json . '</script>';
-        echo '<script src="/assets/js/landing.js"></script>';
+        $jsVersion = substr((string) @md5_file(PUBLIC_ROOT . '/assets/js/landing.js'), 0, 10);
+        echo '<script src="/assets/js/landing.js?v=' . e($jsVersion) . '"></script>';
     }
     if ($config !== null && $pixel !== '') {
         echo '<noscript><img height="1" width="1" alt="" src="https://www.facebook.com/tr?id='
