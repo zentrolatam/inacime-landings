@@ -37,7 +37,8 @@ foreach ($storage->pending() as $lead) {
     $id = (int) $lead['id'];
 
     if (($lead['crm_status'] ?? '') === 'pending') {
-        $ok = $crm->send($lead, $landing);
+        // En el reintento nadie espera en la pantalla: se da más margen al CRM.
+        $ok = $crm->send($lead, $landing, 15);
         $storage->setStatus($id, 'crm_status', $ok ? 'sent' : 'pending');
         $ok ? $sent++ : $failed++;
     }
