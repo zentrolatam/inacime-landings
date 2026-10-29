@@ -11,6 +11,7 @@
 
   captureCampaign();
   initPixel(cfg.pixelId);
+  initGa4(cfg.ga4Id);
 
   var form = document.getElementById("lead-form");
   var nameInput = document.getElementById("nombre");
@@ -27,12 +28,16 @@
   var tried = false;
   var loading = false;
 
-  nameInput.addEventListener("input", render);
+  nameInput.addEventListener("input", function () {
+    markFormStart();
+    render();
+  });
   nameInput.addEventListener("blur", function () {
     touched.name = true;
     render();
   });
   phoneInput.addEventListener("input", function () {
+    markFormStart();
     var next = phoneInput.value.replace(/\D/g, "").slice(0, 10);
     if (next !== phoneInput.value) {
       phoneInput.value = next;
@@ -149,6 +154,40 @@
     window.fbq("track", "PageView");
   }
 
+  // Google Analytics 4: solo se carga si GA4_MEASUREMENT_ID está configurado.
+  // Nunca se envían nombre ni teléfono; solo landing, plantel, programa y folio.
+  function initGa4(measurementId) {
+    if (!measurementId || window.gtag) {
+      return;
+    }
+    window.dataLayer = window.dataLayer || [];
+    window.gtag = function () { window.dataLayer.push(arguments); };
+    window.gtag("js", new Date());
+    window.gtag("config", measurementId, { landing: cfg.slug, plantel: cfg.plantel || "" });
+    var script = document.createElement("script");
+    script.async = true;
+    script.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(measurementId);
+    document.head.appendChild(script);
+  }
+  
+  function ga4(name, params) {
+    if (typeof window.gtag !== "function") {
+      return;
+    }
+    var base = { landing: cfg.slug, plantel: cfg.plantel || "", programa: selectedProgram() || "", transport_type: "beacon" };
+    Object.keys(params || {}).forEach(function (key) { base[key] = params[key]; });
+    window.gtag("event", name, base);
+  }
+  
+  var formStarted = false;
+  function markFormStart() {
+    if (formStarted) {
+      return;
+    }
+    formStarted = true;
+    ga4("form_start");
+  }
+  
   function letterCount(value) {
     var found = value.match(/\p{L}/gu);
     return found ? found.length : 0;
@@ -266,6 +305,7 @@
   function openWhatsApp(url) {
     fallback.href = url;
     fallback.hidden = false;
+    ga4("whatsapp_open", { con_folio: url.indexOf("folio") !== -1 });
     window.location.assign(url);
   }
 
@@ -309,6 +349,7 @@
       if (typeof window.fbq === "function") {
         window.fbq("track", "Lead", {}, { eventID: id });
       }
+      ga4("generate_lead", { folio: String(result.data.folio || "") });
       openWhatsApp(result.data.whatsapp_url);
     }).catch(function (error) {
       console.error("No se pudo registrar el lead", error);
