@@ -7,8 +7,9 @@ final class CrmClient
     /**
      * @param array<string, mixed> $lead
      * @param array<string, mixed> $landing
+     * @param int $timeoutSeconds 3 s en el registro (la persona espera); el reintento usa más.
      */
-    public function send(array $lead, array $landing): bool
+    public function send(array $lead, array $landing, int $timeoutSeconds = 3): bool
     {
         $url = env('CRM_WEBHOOK_URL');
         if ($url === '') {
@@ -36,7 +37,7 @@ final class CrmClient
             'lead_source' => 'meta_ads',
         ];
 
-        $result = Http::postJson($url, $payload, $headers, 3);
+        $result = Http::postJson($url, $payload, $headers, $timeoutSeconds);
         if (!$result['ok']) {
             app_log('crm_fail folio=' . (string) $lead['folio'] . ' status=' . $result['status']);
             return false;
