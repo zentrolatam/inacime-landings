@@ -97,9 +97,16 @@ function render_landing(string $slug, array $landing): void
         $pixel = '';
     }
 
+    $ga4 = env('GA4_MEASUREMENT_ID');
+    if (preg_match('/^G-[A-Z0-9]{4,20}$/', $ga4) !== 1) {
+        $ga4 = '';
+    }
+
     $config = [
         'slug' => $slug,
         'pixelId' => $pixel,
+        'ga4Id' => $ga4,
+        'plantel' => (string) ($landing['plantel'] ?? ''),
         'selector' => $selector,
         'opciones' => $options,
         'programa' => $selector ? '' : (string) ($landing['programa'] ?? ''),
