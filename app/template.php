@@ -170,7 +170,7 @@ function render_landing(string $slug, array $landing): void
         <div class="sheet">
           <?php if ($selector): ?>
             <div class="field">
-              <div class="field-label" id="carrera-label">Carrera</div>
+              <div class="field-label" id="carrera-label"><?= e((string) ($landing['selector_label'] ?? 'Carrera')) ?></div>
               <div class="careers" id="careers" role="radiogroup" aria-labelledby="carrera-label">
                 <?php foreach ($options as $option): ?>
                   <button type="button" class="career" role="radio" aria-checked="false" data-programa="<?= e($option['programa']) ?>">
@@ -179,7 +179,7 @@ function render_landing(string $slug, array $landing): void
                   </button>
                 <?php endforeach; ?>
               </div>
-              <span class="error" id="carrera-error" role="alert" hidden>Elige una carrera.</span>
+              <span class="error" id="carrera-error" role="alert" hidden><?= e((string) ($landing['selector_error'] ?? 'Elige una carrera.')) ?></span>
             </div>
           <?php endif; ?>
 
