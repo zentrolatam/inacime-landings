@@ -93,5 +93,90 @@
     ],
     "direccion": "Gorriones 2, Parque Residencial Coacalco, Coacalco",
     "mensaje": "Hola, quiero información de la Licenciatura Cirujano Dentista en Coacalco (folio {folio})"
+  },
+  "especialidades-coacalco": {
+    "programa": "",
+    "plantel": "Coacalco",
+    "whatsapp": "525648254159",
+    "folio_prefix": "ESP-COA",
+    "selector": true,
+    "selector_label": "Especialidad o maestría",
+    "selector_error": "Elige una especialidad o la maestría.",
+    "opciones": [
+      "Endodoncia",
+      "Cirugía Bucal",
+      "Implantología Oral",
+      "Odontopediatría",
+      "Ortodoncia",
+      "Prótesis y Rehabilitación Bucal",
+      "Maestría en Sistemas Hospitalarios"
+    ],
+    "programas": {
+      "Endodoncia": "Especialidad en Endodoncia",
+      "Cirugía Bucal": "Especialidad en Cirugía Bucal",
+      "Implantología Oral": "Especialidad en Implantología Oral",
+      "Odontopediatría": "Especialidad en Odontopediatría",
+      "Ortodoncia": "Especialidad en Ortodoncia",
+      "Prótesis y Rehabilitación Bucal": "Especialidad en Prótesis y Rehabilitación Bucal",
+      "Maestría en Sistemas Hospitalarios": "Maestría en Sistemas Hospitalarios"
+    },
+    "titulo": "Especialidades en Odontología",
+    "subtitulo": "Especialidades odontológicas y Maestría en Sistemas Hospitalarios en el campus INACIME Coacalco.",
+    "badge": "Inscripciones abiertas",
+    "promo": false,
+    "promo_texto": "",
+    "burbujas": [
+      "Hola, soy tu asesora de admisiones de posgrados del campus Coacalco.",
+      "¿Qué especialidad te interesa? Elígela y déjame tu WhatsApp para compartirte plan de estudios, horarios y costos."
+    ],
+    "chips": [
+      "Avalada por CEYESOV",
+      "Con RVOE",
+      "Inscripciones abiertas"
+    ],
+    "direccion": "Gorriones 2, Parque Residencial Coacalco, Coacalco",
+    "mensaje": "Hola, quiero información de la {programa} en Coacalco (folio {folio})"
+  },
+  "especialidades-tecamac": {
+    "programa": "",
+    "plantel": "Tecámac",
+    "whatsapp": "525640031661",
+    "folio_prefix": "ESP-TEC",
+    "selector": true,
+    "selector_label": "Especialidad o maestría",
+    "selector_error": "Elige una especialidad o la maestría.",
+    "opciones": [
+      "Endodoncia",
+      "Cirugía Bucal",
+      "Implantología Oral",
+      "Odontopediatría",
+      "Ortodoncia",
+      "Prótesis y Rehabilitación Bucal",
+      "Maestría en Sistemas Hospitalarios"
+    ],
+    "programas": {
+      "Endodoncia": "Especialidad en Endodoncia",
+      "Cirugía Bucal": "Especialidad en Cirugía Bucal",
+      "Implantología Oral": "Especialidad en Implantología Oral",
+      "Odontopediatría": "Especialidad en Odontopediatría",
+      "Ortodoncia": "Especialidad en Ortodoncia",
+      "Prótesis y Rehabilitación Bucal": "Especialidad en Prótesis y Rehabilitación Bucal",
+      "Maestría en Sistemas Hospitalarios": "Maestría en Sistemas Hospitalarios"
+    },
+    "titulo": "Especialidades en Odontología",
+    "subtitulo": "Especialidades odontológicas y Maestría en Sistemas Hospitalarios en el campus INACIME Tecámac.",
+    "badge": "Inscripciones abiertas",
+    "promo": false,
+    "promo_texto": "",
+    "burbujas": [
+      "Hola, soy tu asesora de admisiones de posgrados del campus Tecámac.",
+      "¿Qué especialidad te interesa? Elígela y déjame tu WhatsApp para compartirte plan de estudios, horarios y costos."
+    ],
+    "chips": [
+      "Con RVOE",
+      "Inscripciones abiertas"
+    ],
+    "direccion": "Carr. México–Pachuca 37, Hueyotenco, Tecámac",
+    "mensaje": "Hola, quiero información de la {programa} en Tecámac (folio {folio})"
   }
 }
