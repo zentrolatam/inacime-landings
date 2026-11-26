@@ -179,25 +179,25 @@
     "direccion": "Carr. México–Pachuca 37, Hueyotenco, Tecámac",
     "mensaje": "Hola, quiero información de la {programa} en Tecámac (folio {folio})"
   },
-  "tecnico-protesista-dental-coacalco": {
+  "tecnico-protesista-dental-tecamac": {
     "programa": "Carrera de Técnico Protesista Dental",
-    "plantel": "Coacalco",
+    "plantel": "Tecámac",
     "whatsapp": "525664770210",
-    "folio_prefix": "TPD-COA",
+    "folio_prefix": "TPD-TEC",
     "selector": false,
     "titulo": "Técnico Protesista Dental",
-    "subtitulo": "Carrera técnica del área de la salud en el campus INACIME Coacalco.",
-    "eyebrow": "INACIME · Campus Coacalco",
+    "subtitulo": "Carrera técnica del área de la salud en el campus INACIME Tecámac.",
+    "eyebrow": "INACIME · Campus Tecámac",
     "burbujas": [
-      "Hola, soy tu asesora de admisiones de la carrera de Técnico Protesista Dental en el campus Coacalco.",
+      "Hola, soy tu asesora de admisiones de la carrera de Técnico Protesista Dental en el campus Tecámac.",
       "Déjame tu nombre y tu WhatsApp y te comparto plan de estudios, horarios, requisitos y costos."
     ],
     "chips": [
       "Inscripciones abiertas",
       "RVOE SEP [NÚMERO]"
     ],
-    "direccion": "Gorriones 2, Parque Residencial Coacalco, Coacalco",
-    "mensaje": "Hola, quiero información de la carrera de Técnico Protesista Dental en Coacalco (folio {folio})"
+    "direccion": "Carr. México–Pachuca 37, Hueyotenco, Tecámac",
+    "mensaje": "Hola, quiero información de la carrera de Técnico Protesista Dental en Tecámac (folio {folio})"
   },
   "especialidades-cancun": {
     "programa": "",
