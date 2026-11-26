@@ -42,7 +42,6 @@ final class CrmClient
                 ($landing['crm_omitir_plantel'] ?? false) ? '' : (string) ($landing['plantel'] ?? 'Tecámac'),
                 (string) $lead['programa'],
             ], static fn (string $tag): bool => $tag !== '')),
-            ],
             'lead_source' => 'meta_ads',
             // Datos de atribución. El CRM los guarda en el contacto/negocio y usa
             // ga_client_id + ga_session_id para mandar etapas a GA4 (Measurement Protocol).
