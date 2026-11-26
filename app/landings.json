@@ -185,6 +185,7 @@
     "whatsapp": "525664770210",
     "folio_prefix": "TPD-TEC",
     "selector": false,
+    "crm_omitir_plantel": true,
     "titulo": "Técnico Protesista Dental",
     "subtitulo": "Carrera técnica del área de la salud en el campus INACIME Tecámac.",
     "eyebrow": "INACIME · Campus Tecámac",
