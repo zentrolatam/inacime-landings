@@ -37,10 +37,11 @@ final class CrmClient
         $payload = [
             'phone' => (string) $lead['telefono'],
             'name' => (string) $lead['nombre'],
-            'tags' => [
+            'tags' => array_values(array_filter([
                 'Landing Meta',
-                (string) ($landing['plantel'] ?? 'Tecámac'),
+                ($landing['crm_omitir_plantel'] ?? false) ? '' : (string) ($landing['plantel'] ?? 'Tecámac'),
                 (string) $lead['programa'],
+            ], static fn (string $tag): bool => $tag !== '')),
             ],
             'lead_source' => 'meta_ads',
             // Datos de atribución. El CRM los guarda en el contacto/negocio y usa
